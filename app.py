@@ -55,7 +55,7 @@ def get_db():
 limiter = Limiter(key_func=get_remote_address)
 
 app = FastAPI(
-    title="Flippify Payment API",
+    title="Salkaro Pulse Payment API",
     description="API for handling Stripe events",
     version="1.0.0",
     lifespan=lifespan,
@@ -92,7 +92,7 @@ app.add_middleware(
 @app.get("/")
 @limiter.limit("5/second")
 async def root(request: Request):
-    return {"name": "IoT Salkaro Payments API", "version": "1.0.0", "status": "active"}
+    return {"name": "Salkaro Pulse Payments API", "version": "1.0.1", "status": "active"}
 
 
 async def setup_endpoint(request: Request, secret: str):
